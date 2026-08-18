@@ -1,5 +1,6 @@
 from pathlib import Path
 import pandas as pd
+from logger_config import logger
 
 
 # ============================================================
@@ -12,6 +13,8 @@ RAW_DIR = ROOT_DIR / "data" / "raw"
 CLEANED_DIR = ROOT_DIR / "data" / "cleaned"
 
 CLEANED_DIR.mkdir(parents=True, exist_ok=True)
+
+logger.info("Data cleaning started")
 
 
 # ============================================================
@@ -39,6 +42,10 @@ customers = customers.dropna(
 customers.to_csv(
     CLEANED_DIR / "customers_cleaned.csv",
     index=False
+)
+
+logger.info(
+    f"Customers cleaning completed: {len(customers):,} rows"
 )
 
 print("Customers cleaned successfully!")
@@ -77,6 +84,10 @@ orders = orders.dropna(
 orders.to_csv(
     CLEANED_DIR / "orders_clean.csv",
     index=False
+)
+
+logger.info(
+    f"Orders cleaning completed: {len(orders):,} rows"
 )
 
 print("Orders cleaned successfully!")
@@ -120,6 +131,11 @@ order_items.to_csv(
     index=False
 )
 
+logger.info(
+    f"Order Items cleaning completed: "
+    f"{len(order_items):,} rows"
+)
+
 print("Order Items cleaned successfully!")
 
 
@@ -159,6 +175,10 @@ products.to_csv(
     index=False
 )
 
+logger.info(
+    f"Products cleaning completed: {len(products):,} rows"
+)
+
 print("Products cleaned successfully!")
 
 
@@ -193,6 +213,10 @@ payments = payments.dropna(
 payments.to_csv(
     CLEANED_DIR / "payments_clean.csv",
     index=False
+)
+
+logger.info(
+    f"Payments cleaning completed: {len(payments):,} rows"
 )
 
 print("Payments cleaned successfully!")
@@ -239,6 +263,10 @@ reviews.to_csv(
     index=False
 )
 
+logger.info(
+    f"Reviews cleaning completed: {len(reviews):,} rows"
+)
+
 print("Reviews cleaned successfully!")
 
 
@@ -251,3 +279,6 @@ print("=" * 60)
 print("ALL DATASETS CLEANED SUCCESSFULLY!")
 print("=" * 60)
 print(f"Cleaned files saved to: {CLEANED_DIR}")
+
+logger.info("Data cleaning completed")
+logger.info("All datasets cleaned successfully")
