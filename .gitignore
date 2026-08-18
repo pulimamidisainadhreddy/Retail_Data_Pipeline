@@ -1,0 +1,29 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local data
+data/raw/
+data/cleaned/
+
+# Power BI temporary files
+*.pbi-tools/
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
